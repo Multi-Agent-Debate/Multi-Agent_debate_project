@@ -1,5 +1,4 @@
 from langchain_groq import ChatGroq
-from langchain_mistralai import ChatMistralAI
 
 from src.config.settings import settings
 
@@ -23,9 +22,9 @@ def get_opponent_model():
 
 
 def get_moderator_model():
-    """Return the Mistral model used by the Moderator agent."""
-    return ChatMistralAI(
+    """Return the Groq model used by the Moderator agent."""
+    return ChatGroq(
         model=settings.moderator_model,
-        api_key=settings.mistral_api_key,
+        api_key=settings.groq_api_key,
         temperature=0.2,
     )
